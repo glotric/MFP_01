@@ -1,0 +1,228 @@
+\documentclass[slovene,11pt,a4paper]{article}
+\usepackage[margin=2cm,bottom=3cm,foot=1.5cm]{geometry}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5ex}
+
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png}
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage[usenames]{color}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+
+\def\phi{\varphi}
+\def\eps{\varepsilon}
+\def\theta{\vartheta}
+
+\newcommand{\thisyear}{2020/21}
+
+\renewcommand{\Re}{\mathop{\rm Re}\nolimits}
+\renewcommand{\Im}{\mathop{\rm Im}\nolimits}
+\newcommand{\Tr}{\mathop{\rm Tr}\nolimits}
+\newcommand{\diag}{\mathop{\rm diag}\nolimits}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\ddd}{\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\lag}{\mathcal{L}\!}
+\newcommand{\ham}{\mathcal{H}\!}
+\newcommand{\four}[1]{\mathcal{F}\!\left(#1\right)}
+\newcommand{\bigO}[1]{\mathcal{O}\!\left(#1\right)}
+\newcommand{\sh}{\mathop{\rm sinh}\nolimits}
+\newcommand{\ch}{\mathop{\rm cosh}\nolimits}
+\renewcommand{\th}{\mathop{\rm tanh}\nolimits}
+\newcommand{\erf}{\mathop{\rm erf}\nolimits}
+\newcommand{\erfc}{\mathop{\rm erfc}\nolimits}
+\newcommand{\sinc}{\mathop{\rm sinc}\nolimits}
+\newcommand{\rect}{\mathop{\rm rect}\nolimits}
+\newcommand{\ee}[1]{\cdot 10^{#1}}
+\newcommand{\inv}[1]{\left(#1\right)^{-1}}
+\newcommand{\invf}[1]{\frac{1}{#1}}
+\newcommand{\sqr}[1]{\left(#1\right)^2}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\thalf}{\tfrac{1}{2}}
+\newcommand{\pd}{\partial}
+\newcommand{\Dd}[3][{}]{\frac{\ddd^{#1} #2}{\ddd #3^{#1}}}
+\newcommand{\Pd}[3][{}]{\frac{\pd^{#1} #2}{\pd #3^{#1}}}
+\newcommand{\avg}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+\newcommand{\braket}[2]{\left\langle #1 \vert#2 \right\rangle}
+\newcommand{\obraket}[3]{\left\langle #1 \vert #2 \vert #3 \right \rangle}
+\newcommand{\hex}[1]{\texttt{0x#1}}
+
+\renewcommand{\iint}{\mathop{\int\mkern-13mu\int}}
+\renewcommand{\iiint}{\mathop{\int\mkern-13mu\int\mkern-13mu\int}}
+\newcommand{\oiint}{\mathop{{\int\mkern-15mu\int}\mkern-21mu\raisebox{0.3ex}{$\bigcirc$}}}
+
+\newcommand{\wunderbrace}[2]{\vphantom{#1}\smash{\underbrace{#1}_{#2}}}
+
+\renewcommand{\vec}[1]{\overset{\smash{\hbox{\raise -0.42ex\hbox{$\scriptscriptstyle\rightharpoonup$}}}}{#1}}
+\newcommand{\bec}[1]{\mathbf{#1}}
+
+
+
+\title{
+\sc\large Matematično-fizikalni praktikum\\
+\bigskip
+\bf\Large 1.~naloga: Airyjevi funkciji}
+\author{}
+\date{}
+
+\newcommand{\Ai}{\mathrm{Ai}}
+\newcommand{\Bi}{\mathrm{Bi}}
+\newcommand{\bi}[1]{\hbox{\boldmath{$#1$}}}
+\newcommand{\bm}[1]{\hbox{\underline{$#1$}}}
+
+\begin{document}
+\maketitle
+\vspace{-1cm}
+
+Airyjevi funkciji $\Ai$ in $\Bi$ (slika~\ref{sl:airy})
+se v fiziki pojavljata predvsem v optiki in kvantni mehaniki
+\cite{1_vallee}.  Definirani sta kot neodvisni rešitvi enačbe
+%
+\begin{equation*}
+  y''(x) -xy(x) = 0
+\end{equation*}
+%
+in sta predstavljivi v integralski obliki
+%
+\begin{equation*}
+  \Ai(x) = \frac{1}{\pi} \int_0^\infty \cos (t^3/3 + x t) \dd t \>,\quad
+  \Bi(x) = \frac{1}{\pi} \int_0^\infty \left[ \mathrm{e}^{-t^3/3 + x t}
+  + \sin (t^3/3 + x t) \right] \dd t \>.
+\end{equation*}
+%
+
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=11cm]{airy2.pdf}
+\end{center}
+\vspace*{-7mm}
+\caption{Graf Airyevih funkcij $\Ai$ in $\Bi$ za realne
+argumente.  Funkcija $\Ai$ je povsod omejena,
+medtem ko $\Bi$ divergira na pozitivni polosi.
+Ni"cle imata le na negativni polosi.}
+\label{sl:airy}
+\end{figure}
+
+Za majhne $x$ lahko funkciji $\Ai$ in $\Bi$ izrazimo
+z Maclaurinovima vrstama
+%
+\begin{equation*}
+  \Ai(x) = \alpha f(x) - \beta g(x)\>,\qquad
+  \Bi(x) = \sqrt{3}\, \Bigl[\alpha f (x) + \beta g(x) \Bigr]\>,
+\end{equation*}
+kjer v $x=0$ veljata zvezi
+%
+$\alpha = \Ai(0) = \Bi(0)/\sqrt{3}\approx 0.355028053887817239$ in
+$\beta = -\Ai'(0) = \Bi'(0)/\sqrt{3}\approx 0.258819403792806798$.
+Vrsti za $f$ in $g$ sta
+\begin{equation*}
+  f(x) = \sum_{k=0}^\infty
+  \left(\frac{1}{3}\right)_k \frac{3^k x^{3k}}{(3k)!} \>, \qquad
+  g(x) = \sum_{k=0}^\infty
+  \left(\frac{2}{3}\right)_k \frac{3^k x^{3k+1}}{(3k+1)!} \>,
+\end{equation*}
+kjer je
+\begin{equation*}
+  (z)_n = \Gamma(z+n)/\Gamma(z) \>, \qquad (z)_0 = 1 \>.
+\end{equation*}
+
+Za velike vrednosti $|x|$ Airyjevi funkciji aproksimiramo
+z njunima asimp\-tot\-ski\-ma razvojema.  Z novo spremenljivko
+$\xi=\frac{2}{3} |x|^{3/2}$ in asimptotskimi vrstami
+%
+\begin{equation*}
+  L(z) \sim \sum_{s=0}^\infty \frac{u_s}{z^s}\>,\qquad
+  P(z) \sim \sum_{s=0}^\infty (-1)^s \frac{u_{2s}}{z^{2 s}}\>,\qquad
+  Q(z) \sim \sum_{s=0}^\infty (-1)^s \frac{u_{2s+1}}{z^{2 s+1}}\>,
+\end{equation*}
+s koeficienti
+\begin{equation*}
+u_s = \frac{ \Gamma(3s + \frac{1}{2})}
+        {54^s s!\, \Gamma(s + \frac{1}{2}) }
+\end{equation*}
+za velike pozitivne $x$ izrazimo
+%
+\begin{equation*}
+\Ai(x)\sim  \frac{\mathrm{e}^{-\xi}}{2\sqrt{\pi} x^{1/4}} \, L(-\xi) \>, \qquad
+\Bi(x)\sim  \frac{\mathrm{e}^{\xi}} { \sqrt{\pi} x^{1/4}} \, L(\xi)\>,
+\end{equation*}
+%
+za po absolutni vrednosti velike negativne $x$ pa
+%
+%
+\begin{align*}
+    \Ai(x)&\sim  \frac{1}{\sqrt{\pi} (-x)^{1/4}}
+    \Bigl[ \phantom{-}\sin(\xi-\pi/4) \, Q(\xi)
+                    + \cos(\xi-\pi/4) \, P(\xi)\Bigr] \>, \\
+    \Bi(x)&\sim  \frac{1}{\sqrt{\pi} (-x)^{1/4}}
+    \Bigl[ - \sin(\xi-\pi/4) \, P(\xi)
+      + \cos(\xi-\pi/4) \, Q(\xi)\Bigr]\>.
+\end{align*}
+
+\bigskip
+
+{\sl Naloga:} Z uporabo kombinacije Maclaurinove vrste in asimptotskega
+razvoja poišči čim učinkovitejši postopek za izračun
+vrednosti Airyjevih funkcij $\Ai$ in $\Bi$ na vsej real\-ni osi
+z {\bf absolutno} napako, manjšo od $10^{-10}$. Enako naredi tudi z {\bf relativno} napako in ugotovi,
+ali je tudi pri le-tej dosegljiva natančnost, manjša od $10^{-10}$.
+Pri oceni napak si po\-ma\-gaj s programi, ki znajo računati s poljubno
+natančnostjo, na primer z {\sc Mathematico} in/ali paketi {\sc mpmath} in {\sc decimal} v programskem
+jeziku {\sc Python}.
+
+\bigskip
+
+{\sl Dodatna naloga:} Ničle funkcije $\Ai$ pogosto srečamo v matematični
+analizi pri določitvi intervalov ničel specialnih funkcij
+in ortogonalnih polinomov \cite{1_szego} ter v fiziki pri računu
+energijskih spektrov kvantnomehanskih sistemov \cite{1_landauQM}.
+Poišči prvih sto ničel $\{a_s\}_{s=1}^{100}$ Airyjeve
+funkcije $\Ai$ in prvih sto ničel $\{b_s\}_{s=1}^{100}$
+funkcije $\Bi$ pri $x<0$ ter dobljene vrednosti primerjaj s formulama
+%
+\begin{equation*}
+  a_s = - f \left( \frac{3\pi(4s-1)}{8} \right) \>, \qquad
+  b_s = - f \left( \frac{3\pi(4s-3)}{8} \right) \>, \qquad s = 1,2,\ldots \>,
+\end{equation*}
+%
+kjer ima funkcija $f$ asimptotski razvoj \cite{1_abram}
+%
+\begin{equation*}
+  f(z) \sim z^{2/3} \left(
+  1 + \frac{5}{48} \, z^{-2}
+  -\frac{5}{36} \, z^{-4}
+  +\frac{77125}{82944} \, z^{-6}
+  -\frac{108056875}{6967296} \, z^{-8} + \ldots\right) \>.
+\end{equation*}
+
+
+%\addcontentsline{toc}{subsection}{Literatura}
+%\begin{spacing}{0.9}
+\begin{thebibliography}{99}
+\setlength{\itemsep}{.2\itemsep}\setlength{\parsep}{.5\parsep}
+\bibitem{1_vallee} O.~Vall\'ee, M. Soares,
+  {\sl Airy functions and applications to physics},
+  Imperial College Press, London 2004.
+\bibitem{1_szego} G.~Szeg\"o, {\sl Orthogonal polynomials},
+  AMS, Providence 1939.
+\bibitem{1_landauQM} L.~D.~Landau, E.~M.~Lifshitz, {\sl Course in
+  theoretical physics, Vol.~3: Quantum mechanics},
+  $3^\mathrm{rd}$ edition, Pergamon Press, Oxford 1991.
+\bibitem{1_abram} M.~Abramowitz, I.~A.~Stegun, {\sl Handbook of mathematical
+  functions}, $10^\mathrm{th}$ edition, Dover Publications, Mineola 1972.
+\end{thebibliography}
+%\end{spacing}
+
+
+\bigskip
+
+
+\end{document}
